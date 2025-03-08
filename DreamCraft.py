@@ -25,12 +25,12 @@ st.title("🚀 Stable Diffusion Image Generator")
 st.write("Generate stunning AI art directly from text prompts!")
 
 # Input form
-prompt = st.text_input("Enter your prompt:", "a photo of a dog flying in Mars")
+prompt = st.text_input("Enter your prompt:")
 
 if st.button("Generate Image"):
     with st.spinner("Generating image..."):
         image = pipe(prompt, height=384, width=384, num_inference_steps=25).images[0]
-        st.image(image, caption="Generated Image", use_column_width=True)
+        st.image(image, caption="Generated Image", use_container_width=True)
         image.save("generated_image.png")
         st.success("✅ Image successfully generated!")
         st.download_button("Download Image", open("generated_image.png", "rb"), "generated_image.png")
